@@ -250,6 +250,9 @@ def preprocess_data(reddit_data, stopwords_list):
         logging.info("Data successfully filtered.")
         print(f"Filtered data contains {len(cleaned_data)} records.")
         
+        print(f"Saved to cleaned_data.csv")
+        cleaned_data.to_csv("cleaned_data.csv", index=False)
+        
         return cleaned_data
     
     except Exception as e:
@@ -263,7 +266,7 @@ def sent_to_words(sentences):
 def train_lda_model(dataframe, num_topics_range=range(2, 6), output_dir="lda_visualizations"):
     # Convert the 'Text' column to a list of documents
     x = dataframe['Text'].tolist()
-    docs = list(sent_to_words(x))
+    docs = list(sent_to_words(x))   
 
     # Check the structure of docs
     print(f"Sample docs: {docs[:3]}")  # Print a few sample documents for debugging

@@ -80,7 +80,7 @@ class ETLProcess:
         """Load transformed data (e.g., visualize LDA topics)."""
         try:
             logging.info("Training LDA models...")
-            self.lda_models = train_lda_model(self.cleaned_data, num_topics_range=range(2, 6), output_dir="/content/drive/My Drive/Reddit_ISCS/lda_visualizations")
+            self.lda_models = train_lda_model(self.cleaned_data, num_topics_range=range(2, 6))
         except Exception as e:
             logging.error(f"Error during data loading: {e}")
             raise
