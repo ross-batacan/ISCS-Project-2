@@ -238,7 +238,7 @@ def preprocess_data(reddit_data, stopwords_list):
     """
     try:
         # Step 1: Drop the unnecessary columns 'Author' and 'Post_URL'
-        reddit_data_cleaned = reddit_data.drop(columns=['Author', 'Post_URL'])
+        reddit_data_cleaned = reddit_data.drop(columns=['Author'])
 
         # Step 2: Convert 'Timestamp' to datetime format
         reddit_data_cleaned['Timestamp'] = pd.to_datetime(reddit_data_cleaned['Timestamp'])
