@@ -33,5 +33,18 @@ The ETL Script requires that you create a .env file containing
 your CLIENT_ID, CLIENT_SECRET, USER_AGENT, and the SUBREDDIT you 
 would like to scrape from. 
 
-https://www.reddit.com/prefs/apps
+To create an app and get the credentials, do the following steps:
+1. https://www.reddit.com/prefs/apps
+2. Enter a name for your app
+3. Select 'script'
+4. Set redirect uri to: http://localhost:8080
+5. Create the application
+6. Once created, create the .env file with the details below
+
+```
+CLIENT_ID=[personal use script]
+CLIENT_SECRET=[the secret key]
+USER_AGENT=[name of the application]
+SUBREDDIT=Coronavirus_PH [or any subreddit you'd like]
+```
 
