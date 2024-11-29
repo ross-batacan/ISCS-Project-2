@@ -48,3 +48,13 @@ USER_AGENT=[name of the application]
 SUBREDDIT=Coronavirus_PH [or any subreddit you'd like]
 ```
 
+# Start ETL Pipeline
+To start the ETL Pipeline, run the following command in your terminal
+
+```python main.py```
+
+# Note
+Running the etl pipelines gives three outputs
+1. ISCS-Reddit-raw.csv - contains the raw data extracted using PRAW stored in a data frame
+2. ISCS-Reddit-clean.csv - contains the preprocessed data stored in a data frame with the 'Text' column to be used for the LDA model
+3. LDA Visualizations (stored in lda visualizations directory) - contains four html files of IDMs
