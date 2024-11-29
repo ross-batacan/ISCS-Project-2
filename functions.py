@@ -237,7 +237,7 @@ def preprocess_data(reddit_data, stopwords_list):
         pd.DataFrame: A cleaned DataFrame with posts and comments for the given year.
     """
     try:
-        # Step 1: Drop the unnecessary columns 'Author' and 'Post_URL'
+        # Step 1: Drop the column 'Author' 
         reddit_data_cleaned = reddit_data.drop(columns=['Author'])
 
         # Step 2: Convert 'Timestamp' to datetime format
@@ -250,8 +250,12 @@ def preprocess_data(reddit_data, stopwords_list):
         logging.info("Data successfully filtered.")
         print(f"Filtered data contains {len(cleaned_data)} records.")
         
-        print(f"Saved to cleaned_data.csv")
-        cleaned_data.to_csv("cleaned_data.csv", index=False)
+        load_dotenv()
+        subreddit_name = os.getenv("SUBREDDIT")
+        csv_file=(f"{subreddit_name}-clean.csv")
+
+        print(f"Saved to {csv_file}.csv")
+        cleaned_data.to_csv(f"{subreddit_name}-clean.csv", index=False)
         
         return cleaned_data
     
