@@ -77,7 +77,11 @@ class ETLProcess:
             raise
 
     def load_data(self):
-        """Load transformed data (e.g., visualize LDA topics)."""
+        """Load transformed data (output dataframe, visualized LDA topics)."""
+
+        ("Saving dataframe to .csv...")
+        output_dataframe_tocsv(self.cleaned_data)
+
         try:
             logging.info("Training LDA models...")
             self.lda_models = train_lda_model(self.cleaned_data, num_topics_range=range(2, 6))

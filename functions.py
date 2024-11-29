@@ -250,17 +250,23 @@ def preprocess_data(reddit_data, stopwords_list):
         logging.info("Data successfully filtered.")
         print(f"Filtered data contains {len(cleaned_data)} records.")
         
+        return cleaned_data
+    
+    except Exception as e:
+        logging.error(f"An error occurred during data preprocessing: {e}")
+        raise e
+    
+def output_dataframe_tocsv(cleaned_data):
+    try:
         load_dotenv()
         subreddit_name = os.getenv("SUBREDDIT")
         csv_file=(f"{subreddit_name}-clean.csv")
 
         print(f"Saved to {csv_file}.csv")
         cleaned_data.to_csv(f"{subreddit_name}-clean.csv", index=False)
-        
-        return cleaned_data
-    
+
     except Exception as e:
-        logging.error(f"An error occurred during data preprocessing: {e}")
+        logging.error(f"Output data frame not found: {e}")
         raise e
     
 def sent_to_words(sentences):
